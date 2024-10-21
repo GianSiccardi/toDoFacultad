@@ -23,6 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         
         if ($conn->query($query) === TRUE) {
             echo "Registro exitoso.";
+            header("Location: home.html");
         } else {
             echo "Error al registrar: " . $conn->error;
         }
