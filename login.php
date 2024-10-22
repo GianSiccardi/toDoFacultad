@@ -1,9 +1,9 @@
 <?php
+session_start(); // Inicia la sesión al principio del script
 include 'conexion.php';
 
 $email = $_POST['email'];
 $password = $_POST['password'];
-
 
 if (empty($email) || empty($password)) {
     echo '
@@ -17,11 +17,11 @@ if (empty($email) || empty($password)) {
 $validar_login = mysqli_query($conn, "SELECT * FROM usuario WHERE email='$email' AND password='$password'");
 
 if (mysqli_num_rows($validar_login) > 0) {
-
+    $usuario = mysqli_fetch_assoc($validar_login); 
+    $_SESSION['usuario_id'] = $usuario['id']; 
     header("Location: home.php");
     exit;
 } else {
-  
     echo '
     <script>
         alert("Email o contraseña incorrectos.");
@@ -30,3 +30,4 @@ if (mysqli_num_rows($validar_login) > 0) {
     exit;
 }
 ?>
+

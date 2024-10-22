@@ -37,7 +37,7 @@
                 <form action="login.php" method="POST" class="formulario__login">
                     <h2>Iniciar Sesión</h2>
                     <input type="text" placeholder="Correo Electronico"  name="email" >
-                    <input type="password" placeholder="Contraseña" name="password">
+                    <input type="password" placeholder="Contraseña" name="password" >
                     <button>Entrar</button>
                 </form>
 
